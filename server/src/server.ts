@@ -3,9 +3,10 @@ import cors from 'cors';
 
 
 const app = express();
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 app.use(cors({
-    origin: ['http://localhost:5173', 'https://cadexchange-test-task-node-react-ts-mui-i9un.onrender.com']
+    origin: ['http://localhost:5173', 'https://cadexchange-test-task-node-react-ts-mui-i9un.onrender.com'],
+    credentials: true,
 }));
 
 
