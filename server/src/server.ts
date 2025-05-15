@@ -1,24 +1,26 @@
 import path from 'path';
+
+// Получение пути к текущей директории в ES-модуле
+const __dirname = path.dirname(new URL(import.meta.url).pathname);
+
 import express from 'express';
 import cors from 'cors';
+import path from 'path';
 
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-// Настройка CORS для разрешения запросов с фронтенда
 app.use(cors({
     origin: ['http://localhost:5173', 'https://cadexchange-test-task-node-react-ts-mui-i9un.onrender.com'],
     credentials: true,
 }));
 
-// Разрешение для обработки JSON
 app.use(express.json());
 
-// Обслуживание статических файлов React
-const __dirname = path.resolve();
-app.use(express.static(path.join(__dirname, 'client/dist')));
+const staticDir = path.join(__dirname, 'client', 'dist'); // Указываем путь к папке dist
 
-// Обработка POST-запроса на /api/contact
+app.use(express.static(staticDir)); // Статичные файлы из папки dist
+
 app.post('/api/contact', (req, res) => {
     const receivedData = req.body;
     console.log('Received from client: ', receivedData);
@@ -29,9 +31,9 @@ app.post('/api/contact', (req, res) => {
     });
 });
 
-// Обслуживание всех остальных маршрутов через index.html для React
+// Обработка остальных маршрутов
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client/dist', 'index.html'));
+    res.sendFile(path.join(staticDir, 'index.html'));
 });
 
 app.listen(PORT, () => {
