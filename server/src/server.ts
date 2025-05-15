@@ -1,11 +1,11 @@
+import express from 'express';
+import cors from 'cors';
 import path from 'path';
 
 // Получение пути к текущей директории в ES-модуле
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
-import express from 'express';
-import cors from 'cors';
-import path from 'path';
+
 
 const app = express();
 const PORT = process.env.PORT || 4000;
