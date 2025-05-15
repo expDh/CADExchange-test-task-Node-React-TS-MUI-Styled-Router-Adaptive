@@ -23,26 +23,29 @@ const Contact = () => {
         } = useForm<IFormInput>({mode: 'onChange'});
 
 
-        const onSubmit: SubmitHandler<IFormInput> = async (data: IFormInput) => {
-    try {
-        const response = await fetch(process.env.REACT_APP_API_URL || 'http://localhost:4000/api/contact', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        });
+       const onSubmit: SubmitHandler<IFormInput> = async (data: any) => {
+            try {
+                const response = await fetch('http://localhost:4000/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
 
-        const result = await response.json();
-        console.log('Server response: ', result);
-        alert(result.message);
-        reset();
-        setIsSent(true);
-    } catch (error) {
-        console.error('Error while submitting: ', error);
-        alert('Error while submitting!');
-    }
-};
+                const result = await response.json();
+
+                console.log('Server response: ', result);
+                console.log('Data received from server: ', result.data);
+
+                alert(result.message);
+                reset();
+                setIsSent(true);
+            } catch (error) {
+                console.error('Error while submitting: ', error);
+                alert('Error while submitting!');
+            }
+        };
 
 
         return (
