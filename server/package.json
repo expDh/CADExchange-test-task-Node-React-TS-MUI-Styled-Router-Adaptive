@@ -10,7 +10,7 @@
   "dev": "npx ts-node src/server.ts",
   "build": "vite build",
   "start": "npx ts-node src/server.ts"
-}
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
