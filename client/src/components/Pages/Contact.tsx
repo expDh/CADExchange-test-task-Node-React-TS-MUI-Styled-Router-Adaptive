@@ -25,12 +25,12 @@ const Contact = () => {
 
        const onSubmit: SubmitHandler<IFormInput> = async (data: any) => {
             try {
-                const response = await fetch('http://localhost:4000/api/contact', {
+                const response = await fetch('https://your-backend-name.onrender.com/api/contact', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify(data),
+                body: JSON.stringify(data),
                 });
 
                 const result = await response.json();
