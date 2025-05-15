@@ -1,14 +1,15 @@
+
 {
   "name": "server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "homepage": "/",
-  "start": "ts-node src/server.ts",
+  "start": "ts-node --require tsconfig-paths/register src/server.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "ts-node src/server.ts",
-    "build": "react-scripts build"
+    "dev": "ts-node src/server.ts", 
+    "build": "vite build",         
+    "start": "ts-node src/server.ts"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +25,7 @@
     "@types/express": "^5.0.1",
     "@types/node": "^22.15.18",
     "ts-node": "^10.9.2",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "tsconfig-paths": "^3.9.0"
   }
 }
