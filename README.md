@@ -11,6 +11,7 @@
 - MUI (Material UI)  
 - Styled Components  
 - Responsive layout(Adaptive)
+- Deployment on Render (frontend and backend)
 
 ## Project Description
 
@@ -36,7 +37,6 @@ After submitting the form, you will see a success message on the frontend, and t
 ## Assignment Requirements:
   [https://download.cadexchanger.com/documents/hiring/frontend/CADEX+frontend+developer+assigment+for+probationeers.pdf]
 
-## Screens
 
 
 
