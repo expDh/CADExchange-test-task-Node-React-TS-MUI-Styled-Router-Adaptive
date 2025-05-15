@@ -25,7 +25,7 @@ const Contact = () => {
 
        const onSubmit: SubmitHandler<IFormInput> = async (data: any) => {
             try {
-                const response = await fetch('https://your-backend-name.onrender.com/api/contact', {
+                const response = await fetch('https://cadexchange-test-task-node-react-ts-mui-i9un.onrender.com/api/contact', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
