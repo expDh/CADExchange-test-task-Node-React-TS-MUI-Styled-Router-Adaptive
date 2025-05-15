@@ -7,9 +7,9 @@
   "homepage": "/",
   "start": "ts-node --require tsconfig-paths/register src/server.ts",
   "scripts": {
-  "dev": "node src/server.ts",
+  "dev": "ts-node src/server.ts",
   "build": "vite build",
-  "start": "node src/server.ts"
+  "start": "ts-node src/server.ts"
 },
   "keywords": [],
   "author": "",
