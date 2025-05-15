@@ -42,5 +42,5 @@ After submitting the form, you will see a success message on the frontend, and t
 
 [Insert the official assignment requirements provided by CAD Exchange here.]
 
-## Running the Project Locally
+
 
