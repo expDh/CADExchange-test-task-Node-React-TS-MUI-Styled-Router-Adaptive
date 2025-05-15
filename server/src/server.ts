@@ -5,9 +5,13 @@ import cors from 'cors';
 const app = express();
 const PORT = 4000;
 
-app.use(cors({
-    origin: 'http://localhost:5173'
-}));
+const corsOptions = {
+  origin: ['http://localhost:5173', 'https://cadexchange-test-task-node-react-ts-mui-i9un.onrender.com'], 
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type'], 
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 app.post('/api/contact', (req, res) => {
