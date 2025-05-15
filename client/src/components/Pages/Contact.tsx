@@ -21,39 +21,29 @@ const Contact = () => {
         reset,
     } = useForm<IFormInput>({ mode: 'onChange' });
 
-    const onSubmit: SubmitHandler<IFormInput> = async (data) => {
-        try {
-            // Указываем относительный путь к API на сервере
-            const response = await fetch('/api/contact', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+    const onSubmit: SubmitHandler<IFormInput> = async (data: any) => {
+            try {
+                const response = await fetch('https://cadexchange-test-task-node-react-ts-mui-i9un.onrender.com/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
                 body: JSON.stringify(data),
-            });
+                });
 
-            const raw = await response.text();
-            console.log('Raw response:', raw);
+                const result = await response.json();
 
-            if (!response.ok) {
-                throw new Error(`Server error: ${response.status}`);
+                console.log('Server response: ', result);
+                console.log('Data received from server: ', result.data);
+
+                alert(result.message);
+                reset();
+                setIsSent(true);
+            } catch (error) {
+                console.error('Error while submitting: ', error);
+                alert('Error while submitting!');
             }
-
-            if (!raw) {
-                throw new Error('Empty response from server');
-            }
-
-            const result = JSON.parse(raw);
-
-            console.log('Server response: ', result);
-            alert(result.message);
-            reset();
-            setIsSent(true);
-        } catch (error) {
-            console.error('Error while submitting: ', error);
-            alert('Error while submitting the form.');
-        }
-    };
+        };
 
     return (
         <ContactContainer>
